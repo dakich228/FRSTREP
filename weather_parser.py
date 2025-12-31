@@ -245,10 +245,13 @@ def interactive_mode(input_file: str) -> None:
 
 
 def main() -> None:
+    """Главная функция приложения"""
     if len(sys.argv) < 2:
         raise SystemExit("Usage: python program.py <input_file>")
 
+    print("🚀 Запуск приложения Weather Parser v1.0...")
     interactive_mode(sys.argv[1])
+    print("✓ Приложение завершено")
 
 
 if __name__ == "__main__":
