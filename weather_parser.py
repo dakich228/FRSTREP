@@ -146,11 +146,22 @@ def read_objects_from_file(path: str) -> List[Any]:
     return objects
 
 
-def main() -> None:
-    if len(sys.argv) < 2:
-        raise SystemExit("Usage: python program.py <input_file>")
+def print_menu() -> None:
+    print("\n" + "="*70)
+    print("📊 ТЕМПЕРАТУРНЫЙ МОНИТОР".center(70))
+    print("="*70)
+    print("1. Просмотреть данные")
+    print("2. Добавить новое измерение")
+    print("3. Сохранить данные в файл")
+    print("4. Загрузить данные из файла")
+    print("5. Выход")
+    print("="*70)
 
-    objects = read_objects_from_file(sys.argv[1])
+
+def view_data(objects: List[Any]) -> None:
+    if not objects:
+        print("\n❌ Нет данных для отображения!")
+        return
     
     print("\n" + "="*70)
     print("📊 ИЗМЕРЕНИЯ ТЕМПЕРАТУРЫ".center(70))
@@ -165,6 +176,77 @@ def main() -> None:
     print("="*70)
     print(f"Всего измерений: {len(objects)}")
     print("="*70)
+
+
+def add_measurement(objects: List[Any]) -> None:
+    print("\n--- Добавление нового измерения ---")
+    try:
+        date_str = input("Введите дату (YYYY.MM.DD): ").strip()
+        place = input("Введите место: ").strip()
+        temp_str = input("Введите температуру (°C): ").strip()
+        
+        parsed_date = parse_date_yyyymmdd(date_str)
+        parsed_temp = parse_float(temp_str)
+        
+        measurement = TemperatureMeasurement(
+            when=parsed_date,
+            place=place,
+            value=parsed_temp
+        )
+        objects.append(measurement)
+        print(f"✓ Измерение добавлено успешно!")
+    except ValueError as e:
+        print(f"❌ Ошибка: {e}")
+
+
+def save_data(objects: List[Any], filepath: str) -> None:
+    try:
+        with open(filepath, "w", encoding="utf-8") as f:
+            for obj in objects:
+                date_str = obj.when.strftime("%Y.%m.%d")
+                temp_str = f"{obj.value:.1f}".replace(".", ",")
+                f.write(f'temperature {date_str} "{obj.place}" {temp_str}\n')
+        print(f"✓ Данные сохранены в {filepath}")
+    except Exception as e:
+        print(f"❌ Ошибка при сохранении: {e}")
+
+
+def interactive_mode(input_file: str) -> None:
+    objects = read_objects_from_file(input_file)
+    
+    while True:
+        print_menu()
+        choice = input("Выберите действие (1-5): ").strip()
+        
+        if choice == "1":
+            view_data(objects)
+        elif choice == "2":
+            add_measurement(objects)
+        elif choice == "3":
+            save_file = input("Введите имя файла для сохранения: ").strip()
+            if save_file:
+                save_data(objects, save_file)
+        elif choice == "4":
+            load_file = input("Введите имя файла для загрузки: ").strip()
+            if load_file:
+                try:
+                    new_objects = read_objects_from_file(load_file)
+                    objects = new_objects
+                    print(f"✓ Данные загружены из {load_file}")
+                except Exception as e:
+                    print(f"❌ Ошибка при загрузке: {e}")
+        elif choice == "5":
+            print("До свидания!")
+            break
+        else:
+            print("❌ Неверный выбор!")
+
+
+def main() -> None:
+    if len(sys.argv) < 2:
+        raise SystemExit("Usage: python program.py <input_file>")
+
+    interactive_mode(sys.argv[1])
 
 
 if __name__ == "__main__":
