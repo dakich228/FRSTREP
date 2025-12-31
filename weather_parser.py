@@ -250,8 +250,14 @@ def main() -> None:
         raise SystemExit("Usage: python program.py <input_file>")
 
     print("🚀 Запуск приложения Weather Parser v1.0...")
-    interactive_mode(sys.argv[1])
-    print("✓ Приложение завершено")
+    try:
+        interactive_mode(sys.argv[1])
+    except KeyboardInterrupt:
+        print("\n\n⚠️  Приложение прервано пользователем")
+    except Exception as e:
+        print(f"\n\n❌ Критическая ошибка: {e}")
+    finally:
+        print("✓ Приложение завершено")
 
 
 if __name__ == "__main__":
