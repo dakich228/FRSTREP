@@ -245,10 +245,16 @@ def interactive_mode(input_file: str) -> None:
 
 
 def main() -> None:
+    # Main entry point for the application
     if len(sys.argv) < 2:
         raise SystemExit("Usage: python program.py <input_file>")
-
-    interactive_mode(sys.argv[1])
+    
+    try:
+        interactive_mode(sys.argv[1])
+    except KeyboardInterrupt:
+        print("\n\n⚠️  Приложение прервано пользователем")
+    except Exception as e:
+        print(f"\n\n❌ Критическая ошибка: {e}")
 
 
 if __name__ == "__main__":
