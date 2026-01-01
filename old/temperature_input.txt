@@ -1,0 +1,4 @@
+temperature 2025.12.31 "Amsterdam" 21.5
+temperature 2025.12.30 "Rotterdam" 7.2
+temperature 2025.01.05 "Groningen" -4,6
+invalid_line_without_type

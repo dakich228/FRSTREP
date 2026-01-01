@@ -1,0 +1,10 @@
+Name                            Stmts   Miss  Cover   Missing
+-------------------------------------------------------------
+app/__init__.py                     0      0   100%
+app/file_operations.py             66      4    94%   31, 41, 70, 83
+app/models.py                      10      1    90%   16
+app/parsers.py                     33      1    97%   28
+tests/test_file_operations.py      58      1    98%   81
+tests/test_parsers.py              41      1    98%   68
+-------------------------------------------------------------
+TOTAL                             208      8    96%

@@ -1,8 +1,0 @@
-temperature 2025.12.31 "Amsterdam Science Park" 21.5
-temperature 2025.12.30 "Rotterdam Center" 7.2
-temperature 2025.11.15 "Utrecht Station" 3,8
-temperature 2025.10.01 "Eindhoven Airport" 12.0
-temperature 2025.01.05 "Groningen" -4.6
-temperature 2024.12.24 "Den Haag Beach" 5.1
-temperature 2024.08.10 "Maastricht Old Town" 26.3
-temperature 2023.03.18 "Leiden Museum" 9.0

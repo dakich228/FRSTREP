@@ -1,0 +1,36 @@
+************* Module app.models
+app/models.py:10:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module app.parsers
+app/parsers.py:20:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/parsers.py:26:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/parsers.py:32:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/parsers.py:38:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/parsers.py:44:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/parsers.py:48:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/parsers.py:60:11: W0718: Catching too general exception Exception (broad-exception-caught)
+************* Module app.file_operations
+app/file_operations.py:24:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/file_operations.py:28:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/file_operations.py:28:0: R0914: Too many local variables (16/15) (too-many-locals)
+app/file_operations.py:75:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/file_operations.py:86:19: W0718: Catching too general exception Exception (broad-exception-caught)
+app/file_operations.py:92:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module app.ui
+app/ui.py:38:0: C0301: Line too long (114/100) (line-too-long)
+app/ui.py:12:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:24:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:42:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:56:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:63:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:78:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:83:9: W0108: Lambda may not be necessary (unnecessary-lambda)
+app/ui.py:84:9: W0108: Lambda may not be necessary (unnecessary-lambda)
+app/ui.py:85:9: W0108: Lambda may not be necessary (unnecessary-lambda)
+app/ui.py:91:0: C0116: Missing function or method docstring (missing-function-docstring)
+app/ui.py:113:15: W0718: Catching too general exception Exception (broad-exception-caught)
+************* Module app.main
+app/main.py:10:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+------------------------------------------------------------------
+Your code has been rated at 8.62/10 (previous run: 8.62/10, +0.00)
+
